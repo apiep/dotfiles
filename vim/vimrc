@@ -123,8 +123,13 @@ filetype plugin indent on
             nmap <silent> <F3> :NERDTreeToggle<cr>
 
             " smart home
-            noremap <expr> <silent> <Home> col('.') == match(getline('.'), '\S') + 1 ? '0' : '^'
-            imap <silent> <Home> <C-O><Home>
+            "noremap <expr> <silent> <Home> col('.') == match(getline('.'), '\S') + 1 ? '0' : '^'
+            noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
+            noremap <expr> <End>  (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
+            vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
+            "imap <silent> <Home> <C-O><Home>
+            imap <Home> <C-o><Home>
+            imap <End> <C-o><End>
         " EOF keymap
     " EOF editing
     " Per file setting
