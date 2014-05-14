@@ -1,0 +1,142 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugin {
+    Plugin 'gmarik/Vundle.vim'
+
+    " ui
+        Plugin 'altercation/vim-colors-solarized'
+        Plugin 'bling/vim-airline'
+        Plugin 'nathanaelkane/vim-indent-guides'
+        Plugin 'chriskempson/vim-tomorrow-theme'
+    " EOF ui
+    " enhance
+        Plugin 'Raimondi/delimitMate'
+        Plugin 'scrooloose/nerdcommenter'
+        Plugin 'tpope/vim-surround'
+    " EOF enhance
+    " navigate
+        Plugin 'scrooloose/nerdtree'
+        Plugin 'jistr/vim-nerdtree-tabs'
+    " EOF navigate
+    " autocomplete
+        Bundle 'davidhalter/jedi-vim'
+        Plugin 'Shougo/neosnippet.vim'
+        Plugin 'Shougo/neosnippet-snippets'
+        Plugin 'honza/vim-snippets'
+    " EOF autocomplete
+    " language
+        Plugin 'mattn/emmet-vim'
+        Plugin 'othree/html5.vim'
+        Plugin 'groenewege/vim-less'
+        Plugin 'pangloss/vim-javascript'
+        Plugin 'kchmck/vim-coffee-script'
+        Plugin 'elzr/vim-json'
+    " EOF language
+" EOF Plugin
+call vundle#end()
+filetype plugin indent on
+" Config
+    " ui
+        " show statusline
+        set laststatus=2
+        "let g:airline_theme='bubblegum'
+        " ???
+        set ttimeoutlen=50
+
+        set wildmenu
+        set wildmode=list:longest,full
+        set showcmd
+
+        set number
+        syntax on
+
+        " Terminal
+        if !has('gui_running')
+            set t_Co=256
+            set background=dark
+            colorscheme Tomorrow-Night
+        endif
+        " EOF Terminal
+
+        " GUI
+        if has('gui_running')
+            set go-=T
+            set background=dark
+            "set guifont=Meslo\ LG\ S\ 10
+            set guifont=Source\ Code\ Pro\ Medium\ 10
+            "set guifont=Meslo\ LG\ S\ for\ Powerline\ 10
+            colorscheme Tomorrow-Night
+
+            " enable indent-guides only when using gui
+            let g:indent_guides_enable_on_vim_startup=1
+        endif
+        " EOF GUI
+        " Indent guides
+            let g:indent_guides_guide_size=1
+            let g:indent_guides_start_level=2
+        " EOF Indent guides
+        " Airline
+            let g:airline_powerline_fonts=1
+            let g:airline#extensions#tabline#enabled=1
+            let g:airline#extensions#tabline#left_sep=' '
+            let g:airline#extensions#tabline#left_alt_sep='|'
+        " EOF Airline
+        " NerdTree
+            " disable nerdtree open on gui startup
+            let g:nerdtree_tabs_open_on_gui_startup=0
+        " EOF NerdTree
+    " EOF ui
+    " editing
+        let mapleader=","
+        set backspace=indent,eol,start
+        set scrolloff=3
+
+        " show matching brackets/parenthesis
+        set showmatch
+
+        set autoindent
+        set cindent
+        set expandtab
+        set softtabstop=4
+        set shiftwidth=4
+        set shiftround
+
+        set ignorecase
+        set smartcase
+        set hlsearch
+        set incsearch
+
+        " keymap
+            nnoremap <Leader><Space> :set nohlsearch<cr>
+
+            " window switch
+                nnoremap <A-Up> <C-W>k
+                nnoremap <A-Down> <C-W>j
+                nnoremap <A-Left> <C-W>h
+                nnoremap <A-Right> <C-W>l
+            " EOF window switch
+            " nerdtree
+            nmap <silent> <F3> :NERDTreeToggle<cr>
+
+            " smart home
+            noremap <expr> <silent> <Home> col('.') == match(getline('.'), '\S') + 1 ? '0' : '^'
+            imap <silent> <Home> <C-O><Home>
+        " EOF keymap
+    " EOF editing
+    " Per file setting
+        " html
+        au Filetype html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+        " js
+        au Filetype html setlocal ts=2 sw=2 sts=2
+        " css,less
+        au Filetype css setlocal ts=2 sw=2 sts=2
+        au Filetype less setlocal ts=2 sw=2 sts=2
+        " asm
+        au Filetype asm setlocal ts=2 sw=2 sts=2
+    " EOF Per file setting
+" EOF Config
+
