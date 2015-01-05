@@ -1,12 +1,11 @@
-_bash=$HOME/Documents/dotfiles/bash
-source $_bash/alias.sh
-source $_bash/path.sh
+# exported
+export TERM=xterm-256color
+export LANG=en_US.UTF-8
+export IDEA_HOME=/opt/jdk8
+export ANDROID_EMULATOR_FORCE_32BIT=true
 
-for c_path in $(ls $_bash/custom_path)
-do
-    if [ -x $c_path ]; then
-        source $c_path
-    fi
-done
 
-unset _bash
+currdir=$HOME/Documents/dotfiles/bash
+source $currdir/path.sh
+source $currdir/alias.sh
+unset currdir

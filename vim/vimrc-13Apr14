@@ -1,0 +1,129 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" Vim plugins
+Bundle 'markwu/vim-smarthome'
+
+" Display hex color in it background   
+Bundle 'ap/vim-css-color'
+Bundle 'itchyny/lightline.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'majutsushi/tagbar'
+Bundle 'jlanzarotta/bufexplorer'
+"Bundle 'Townk/vim-autoclose'
+"Bundle 'godlygeek/csapprox'
+Bundle 'vim-scripts/Better-CSS-Syntax-for-Vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-surround'
+"Bundle 'valloric/YouCompleteMe'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-markdown'
+Bundle 'vim-scripts/vim-auto-save'
+
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'tomasr/molokai'
+Bundle 'chriskempson/vim-tomorrow-theme'
+
+
+" Configuration
+filetype plugin indent on
+syntax on			" syntax highlight
+"set t_Co=256			" 256-colors
+"set background=dark		" dark bg
+"colors Monokai
+colors Tomorrow-Night
+
+
+
+"set cursorline
+set more
+set number
+set scrolloff=3
+set showcmd
+set title
+set vb t_vb=
+set wildmenu
+"set wildmenu=longest:list
+
+set guifont=Meslo\ LG\ S\ 10
+set guioptions-=T	                	" Hilangkan toolbar
+set guioptions-=r               		" Hilangkan right scrollbar
+
+set history=1000
+set nowrap
+set splitbelow
+set splitright
+
+set foldcolumn=0
+set foldmethod=indent
+set foldnestmax=10
+"set foldlevelstart=nofoldenable 		" folds open by default
+set nofoldenable
+
+set autochdir	                		" always use curr. dir.
+set autoread
+
+set autoindent
+set backspace=indent,eol,start	" smart backspace
+set expandtab
+set ignorecase
+set shiftround
+set shiftwidth=4
+set smartcase
+set smarttab
+set softtabstop=4
+set tabstop=4
+set dir=~/.vim_swap
+set backupdir=~/.vim_backup
+set backup
+" Per file settings
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+"""" Plugin configuration
+" tagbar
+let g:tagbar_width=30
+let g:auto_save=1
+
+"""""" Key Mapping
+let mapleader=","
+" Copy to system clipboard (katanya)
+noremap <C-c> "+y
+inoremap <C-v> <Esc>"+gPa
+noremap <C-v> "+gP
+
+" Toggle folding
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+" Bubbling (bracket matching)
+nmap <C-up> [e
+nmap <C-down> ]e
+vmap <C-up> [egv
+vmap <C-down> ]egv
+
+nnoremap <F1> :BufExplorer<cr>
+nnoremap <F2> :NERDTreeToggle<cr>
+nnoremap <F3> :TagbarToggle<cr>
+nnoremap <F4> :GundoToggle<cr>
+
+" Closing buffer
+nnoremap <C-F4> :bdelete<cr>
+nnoremap <C-Left> :bprevious<cr>
+nnoremap <C-Right> :bnext<cr>
+
+" Pindah jendela
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>

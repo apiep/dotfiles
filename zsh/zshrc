@@ -1,0 +1,21 @@
+# auto rehash zsh
+TRAPUSR1() { rehash }; precmd() { [[ $history[$[ HISTCMD -1 ]] == *(equo|rigo|pip|npm)* ]] && killall -USR1 zsh }
+
+# Path to your oh-my-zsh configuration.
+ZSH=/home/apiep/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="miloshadzic"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/i686-pc-linux-gnu/gcc-bin/4.7.3:/usr/games/bin
+
+# Add current path to $PATH
+PATH=$PATH:$PWD
+# and my script path
+PATH=$PATH:$HOME/dotfiles/script/bin
+
+
+# Alias
+alias zshrc="gvim ~/.zshrc"
+alias vimrc="gvim ~/.vimrc"

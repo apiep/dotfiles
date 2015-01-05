@@ -1,11 +1,13 @@
-export documents=$HOME/Documents
+function take() {
+    mkdir -p $1
+    cd $1
+}
 
-alias dotfiles='cd $documents/dotfiles'
-alias gitpeople='cd $documents/Git/people'
-alias vimrc='vim $HOME/.vimrc'
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 
-alias gcc='gcc -Wall'
-alias ya='yaourt'
-alias pacman='sudo pacman'
-
-alias subl='$HOME/.local/sublime_text_3/sublime_text'
+alias vimrc='gvim ~/.vimrc'
+alias gitpeople='cd ~/Documents/Git/People-Repo'
+alias dotfiles='cd ~/Documents/dotfiles'
+alias localhost='cd /opt/lampp/htdocs'
+alias ls='ls --color=auto'
+alias qiscus='cd ~/Documents/Qiscus'
