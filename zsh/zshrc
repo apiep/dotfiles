@@ -7,8 +7,9 @@ ZSH_THEME="robbyrussell"
 #ZSH_THEME="miloshadzic"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+source ~/Documents/dotfiles/bash/main.sh
 
-PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/i686-pc-linux-gnu/gcc-bin/4.7.3:/usr/games/bin
+#PATH=/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/i686-pc-linux-gnu/gcc-bin/4.7.3:/usr/games/bin
 
 # Add current path to $PATH
 PATH=$PATH:$PWD

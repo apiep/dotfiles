@@ -81,6 +81,7 @@
     filetype plugin indent on
     syntax on
     colors Tomorrow-Night
+    "colors seoul256
     set autoindent
     set backspace=indent,eol,start  " smart backspace
     set expandtab
@@ -128,9 +129,9 @@
     au BufWritePost .vimrc so ~/.vimrc
 
     " Gui {
-        "set guifont=Source\ Code\ Pro\ Semibold\ 10
+        set guifont=Source\ Code\ Pro\ Semibold\ 11
         "set guifont=Menlo\ 10
-        set guifont=Consolas\ 10
+        "set guifont=Consolas\ 10
 	    set guioptions-=T  " -toolbar
     	set guioptions-=r  " -right scrollbar
         "set guioptions-=m  " -menubar
