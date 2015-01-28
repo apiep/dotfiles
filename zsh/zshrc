@@ -1,5 +1,5 @@
 # auto rehash zsh
-TRAPUSR1() { rehash }; precmd() { [[ $history[$[ HISTCMD -1 ]] == *(equo|rigo|pip|npm)* ]] && killall -USR1 zsh }
+#TRAPUSR1() { rehash }; precmd() { [[ $history[$[ HISTCMD -1 ]] == *(equo|rigo|pip|npm)* ]] && killall -USR1 zsh }
 
 # Path to your oh-my-zsh configuration.
 ZSH=/home/apiep/.oh-my-zsh

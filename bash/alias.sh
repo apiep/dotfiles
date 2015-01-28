@@ -11,3 +11,5 @@ alias dotfiles='cd ~/Documents/dotfiles'
 alias localhost='cd /opt/lampp/htdocs'
 alias ls='ls --color=auto'
 alias qiscus='cd ~/Documents/Qiscus'
+
+alias gitstat='git diff --stat HEAD\^ HEAD'

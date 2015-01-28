@@ -14,7 +14,7 @@ fi
 unset current_dir
 
 # Add virtualenv
-#source `which virtualenvwrapper.sh`
+source `which virtualenvwrapper.sh`
 # Add ~/bin to path
 export PATH=$PATH:$HOME/bin
 source ~/.rvm/scripts/rvm

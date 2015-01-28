@@ -1,80 +1,82 @@
 " Vundle Config {
     set nocompatible
     filetype off
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 " // Vundle Config
 " Plugin list {
+    Plugin 'gmarik/Vundle.vim'
     " Color scheme {
-        "Bundle 'chriskempson/base16-vim'
-        Bundle 'junegunn/seoul256.vim'
-        Bundle 'chriskempson/vim-tomorrow-theme'
-        Bundle 'nanotech/jellybeans.vim'
+        Plugin 'chriskempson/base16-vim'
+        Plugin 'junegunn/seoul256.vim'
+        Plugin 'chriskempson/vim-tomorrow-theme'
+        Plugin 'nanotech/jellybeans.vim'
     " // Color scheme
-    Bundle 'ap/vim-css-color'
-    Bundle 'slj/gundo.vim'
-    Bundle 'scroolose/nerdtree'
-    Bundle 'scroolose/nerdcommenter'
-    Bundle 'majutsushi/tagbar'
-    "Bundle 'jlanzarotta/bufexplorer'
-    "Bundle 'kchmck/vim-coffee-script'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-markdown'
-    "Bundle 'vim-scripts/vim-auto-save'
-    Bundle 'Glench/Vim-Jinja2-Syntax'
-    "Bundle 'davidhalter/jedi-vim'
-    "Bundle 'bling/vim-bufferline'
-    Bundle 'nathanaelkane/vim-indent-guides'
-    "Bundle 'valloric/YouCompleteMe'
-    Bundle 'groenewege/vim-less'
-    "Bundle 'wavded/vim-stylus'
-    "Bundle 'digitaltoad/vim-jade'
-    Bundle 'editorconfig/editorconfig-vim'
+    Plugin 'ap/vim-css-color'
+    "Plugin 'slj/gundo.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'majutsushi/tagbar'
+    "Plugin 'jlanzarotta/bufexplorer'
+    "Plugin 'kchmck/vim-coffee-script'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-markdown'
+    "Plugin 'vim-scripts/vim-auto-save'
+    Plugin 'Glench/Vim-Jinja2-Syntax'
+    "Plugin 'davidhalter/jedi-vim'
+    "Plugin 'bling/vim-bufferline'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    "Plugin 'valloric/YouCompleteMe'
+    Plugin 'groenewege/vim-less'
+    "Plugin 'wavded/vim-stylus'
+    "Plugin 'digitaltoad/vim-jade'
+    Plugin 'editorconfig/editorconfig-vim'
 
     " Ctrl+P {
-        Bundle 'Yggdroot/LeaderF'
-        "Bundle 'kien/ctrlp.vim'
+        Plugin 'Yggdroot/LeaderF'
+        "Plugin 'kien/ctrlp.vim'
     " }
-    "Bundle 'tpope/vim-fugitive'
-    Bundle 'Raimondi/delimitMate'
-    Bundle 'godlygeek/tabular'
+    "Plugin 'tpope/vim-fugitive'
+    Plugin 'Raimondi/delimitMate'
+    Plugin 'godlygeek/tabular'
 
     " JS beautify
-    "Bundle 'maksimr/vim-jsbeautify'
-    "Bundle 'einars/js-beautify'
+    "Plugin 'maksimr/vim-jsbeautify'
+    "Plugin 'einars/js-beautify'
 
     " Auto close tag
-    Bundle 'tpope/vim-ragtag'
+    Plugin 'tpope/vim-ragtag'
 
     " Snippet
-    Bundle 'tomtom/tlib_vim'
-    Bundle 'MarcWeber/vim-addon-mw-utils'
-    Bundle 'garbas/vim-snipmate'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'garbas/vim-snipmate'
         " Optional
-    Bundle 'honza/vim-snippets'
+    Plugin 'honza/vim-snippets'
 
     " HTML Emmet
-    Bundle 'mattn/emmet-vim'
+    Plugin 'mattn/emmet-vim'
 
     " Run inside vim
-    "Bundle 'thinca/vim-quickrun'
+    "Plugin 'thinca/vim-quickrun'
 
     " Syntax checking
-    "Bundle 'scrooloose/syntastic'
+    "Plugin 'scrooloose/syntastic'
 
     " Status line
-    Bundle 'itchyny/lightline.vim'
-        "Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-        "Bundle 'bling/vim-airline'
+    Plugin 'itchyny/lightline.vim'
+        "Plugin 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+        "Plugin 'bling/vim-airline'
 
     " Colorpicker
-    "Bundle 'abijr/colorpicker'
+    "Plugin 'abijr/colorpicker'
 
     " Ember.JS
-    "Bundle 'dsawardekar/ember.vim'
+    "Plugin 'dsawardekar/ember.vim'
 
-    "Bundle 'mustache/vim-mustache-handlebars'
+    "Plugin 'mustache/vim-mustache-handlebars'
     " endplugins
+    call vundle#end()
 " } // Plugin list
 
 " Config {
@@ -129,18 +131,18 @@
     au BufWritePost .vimrc so ~/.vimrc
 
     " Gui {
-        set guifont=Source\ Code\ Pro\ Semibold\ 11
+        set guifont=Source\ Code\ Pro\ Semibold\ 10
         "set guifont=Menlo\ 10
         "set guifont=Consolas\ 10
 	    set guioptions-=T  " -toolbar
     	set guioptions-=r  " -right scrollbar
-        "set guioptions-=m  " -menubar
+        set guioptions-=m  " -menubar
     " // Gui
 
     " Per Filetype setting {
-        autocmd Filetype html setlocal ts=2 sts=2 sw=2
+        autocmd Filetype html setlocal ts=4 sts=4 sw=4
 	    autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
-    	autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+    	autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
     " } // Per Filetype setting
     "
     " Resize window {
