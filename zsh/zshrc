@@ -1,10 +1,10 @@
 # auto rehash zsh
-#TRAPUSR1() { rehash }; precmd() { [[ $history[$[ HISTCMD -1 ]] == *(equo|rigo|pip|npm)* ]] && killall -USR1 zsh }
+TRAPUSR1() { rehash }; precmd() { [[ $history[$[ HISTCMD -1 ]] == *(pacman|pip|npm)* ]] && killall -USR1 zsh }
 
 # Path to your oh-my-zsh configuration.
 ZSH=/home/apiep/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="miloshadzic"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="clean"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 source ~/Documents/dotfiles/bash/main.sh
@@ -18,5 +18,5 @@ PATH=$PATH:$HOME/dotfiles/script/bin
 
 
 # Alias
-alias zshrc="gvim ~/.zshrc"
-alias vimrc="gvim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"

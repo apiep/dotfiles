@@ -11,6 +11,10 @@
         Plugin 'junegunn/seoul256.vim'
         Plugin 'chriskempson/vim-tomorrow-theme'
         Plugin 'nanotech/jellybeans.vim'
+        Plugin 'gosukiwi/vim-atom-dark'
+        Plugin 'tomasr/molokai'
+        Plugin 'trapd00r/neverland-vim-theme'
+        Plugin 'itchyny/landscape.vim'
     " // Color scheme
     Plugin 'ap/vim-css-color'
     "Plugin 'slj/gundo.vim'
@@ -18,7 +22,7 @@
     Plugin 'scrooloose/nerdcommenter'
     Plugin 'majutsushi/tagbar'
     "Plugin 'jlanzarotta/bufexplorer'
-    "Plugin 'kchmck/vim-coffee-script'
+    Plugin 'kchmck/vim-coffee-script'
     Plugin 'tpope/vim-surround'
     Plugin 'tpope/vim-markdown'
     "Plugin 'vim-scripts/vim-auto-save'
@@ -43,6 +47,8 @@
     " JS beautify
     "Plugin 'maksimr/vim-jsbeautify'
     "Plugin 'einars/js-beautify'
+    " Syntax checking javascript
+    Plugin 'Shutnik/jshint2.vim'
 
     " Auto close tag
     Plugin 'tpope/vim-ragtag'
@@ -64,9 +70,9 @@
     "Plugin 'scrooloose/syntastic'
 
     " Status line
-    Plugin 'itchyny/lightline.vim'
+    "Plugin 'itchyny/lightline.vim'
         "Plugin 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-        "Plugin 'bling/vim-airline'
+    Plugin 'bling/vim-airline'
 
     " Colorpicker
     "Plugin 'abijr/colorpicker'
@@ -75,15 +81,35 @@
     "Plugin 'dsawardekar/ember.vim'
 
     "Plugin 'mustache/vim-mustache-handlebars'
-    " endplugins
+
+    " Livescript support
+    Plugin 'gkz/vim-ls'
+
+    " Show trailing whitespace
+    Plugin 'ntpeters/vim-better-whitespace'
+
+    " VIM motion for easy navigation
+    Plugin 'Lokaltog/vim-easymotion'
+
+    " Distraction Free
+    Plugin 'junegunn/goyo.vim'
+
+    " Maximize window
+    Plugin 'szw/vim-maximizer'
+    Plugin 'justincampbell/vim-eighties'
+    " Auto complete
+    Plugin 'Shougo/neocomplete.vim'
+    " Shell
+    Plugin 'Shougo/vimshell.vim'
+    " End Plugins
     call vundle#end()
 " } // Plugin list
 
 " Config {
     filetype plugin indent on
     syntax on
-    colors Tomorrow-Night
-    "colors seoul256
+    colors Tomorrow-Night-Bright
+    "colors atom-dark
     set autoindent
     set backspace=indent,eol,start  " smart backspace
     set expandtab
@@ -101,13 +127,21 @@
     set laststatus=2        " statusline not shown in single window
     "set mouse=a             " Enable mouse
 
+    " No annoying sound
+    set noerrorbells
+    set novisualbell
+    set t_vb=
+    set tm=500
+
     " If running on terminal
-    "if !has('gui_running')
+    if !has('gui_running')
         "set t_Co=256
-    "endif
+        colorscheme Tomorrow-Night-Bright
+    endif
 
     " Dont know for what {
         set more
+        set relativenumber
         set number
         set scrolloff=3
 		"set showcmd
@@ -143,6 +177,10 @@
         autocmd Filetype html setlocal ts=4 sts=4 sw=4
 	    autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
     	autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+
+        " Livescript setting
+        au BufNewFile,BufReadPost *.ls setl foldmethod=indent nofoldenable
+        au BufNewFile,BufReadPost *.ls setl sw=2 ts=2 sts=2 expandtab
     " } // Per Filetype setting
     "
     " Resize window {
@@ -153,6 +191,14 @@
     " }
 
     " PluginConfig {
+        " vim-airline {
+            let g:airline_powerline_fonts = 1
+            "let g:airline#extensions#tabline#left_sep = ' '
+            "let g:airline#extensions#tabline#left_alt_sep = '|'
+        " } // vim-airline
+        " autocomplete [neocomplete] {
+            let g:neocomplete#enable_at_startup = 1
+        " } / autocomplete
         " nerdtree {
             let NERDTreeQuitOnOpen=1
         " } / nerdtree
@@ -183,13 +229,20 @@
             "let g:syntastic_python_checkers = ['pyflakes']
             "let g:syntastic_javascript_checkers = ['jslint']
         " } // linting
-    " } // Plugin
+        " emmet {
+            let g:user_emmet_leader_key = '<c-w>'
+        " } // emmet
+    " } // PluginConfig
 
     " Key mapping {
         let mapleader=","
 	    nnoremap <F2> :NERDTreeToggle<cr>
-    	nnoremap <F3> :TagbarToggle<cr>
-    	nnoremap <F4> :GundoToggle<cr>
+        "nnoremap <F3> :TagbarToggle<cr>
+        "nnoremap <F4> :GundoToggle<cr>
+
+        " Fast saving
+        nmap <leader>w :w<cr>
+
 	    " Copy paste system clipboard {
 	        noremap <C-c> "+y
     	    inoremap <C-v> <Esc>"+gPa
@@ -215,10 +268,20 @@
     	" } // Closing buffer
 
         " Pindah jendela {
-            nmap <silent> <A-Up> :wincmd k<cr>
-            nmap <silent> <A-Down> :wincmd j<cr>
-            nmap <silent> <A-Left> :wincmd h<cr>
-            nmap <silent> <A-Right> :wincmd l<cr>
+            "nmap <silent> <A-Up> :wincmd k<cr>
+            "nmap <silent> <A-Down> :wincmd j<cr>
+            "nmap <silent> <A-Left> :wincmd h<cr>
+            "nmap <silent> <A-Right> :wincmd l<cr>
+            nmap <silent> <c-k> :wincmd k<cr>
+            nmap <silent> <c-j> :wincmd j<cr>
+            nmap <silent> <c-h> :wincmd h<cr>
+            nmap <silent> <c-l> :wincmd l<cr>
         " } // Pindah cendela
+        " Livescript Keymapping {
+            nmap <silent> <C-c> :LiveScriptCompile<cr>
+        " } // Livescript Keymapping
+        " JSHint Keymapping {
+            nnoremap <silent> <F1> :JSHint<cr>
+        " } // JSHint Keymapping
     " } // Key mapping
 " } // Config
